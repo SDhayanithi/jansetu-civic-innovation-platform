@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, Megaphone, ShieldCheck, Sparkles } from "lucide-react";
 import { useApp } from "@/app/AppContext";
 import { useT } from "@/utils/i18n";
+import { assetUrl } from "@/lib/utils";
 
 export function CTASection() {
   const { state } = useApp();
@@ -12,7 +13,7 @@ export function CTASection() {
       {/* High-Definition Panoramic Landscape Background */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/jharkhand-cta.jpg"
+          src={assetUrl("/jharkhand-cta.jpg")}
           alt="Jharkhand Development Landscape"
           className="size-full object-cover object-center filter brightness-[0.7] contrast-[1.05]"
         />

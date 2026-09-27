@@ -19,6 +19,7 @@ import { useT } from "@/utils/i18n";
 import type { Role } from "@/app/types";
 import { AppButton } from "./AppButton";
 import { Section } from "./Section";
+import { assetUrl } from "@/lib/utils";
 
 const roles: {
   role: Role;
@@ -81,7 +82,7 @@ const roleFields: Record<Role, [string, string][]> = {
 function useRoleForm(defaultRole: Role = "citizen") {
   const [role, setRole] = useState<Role>(defaultRole);
   const [values, setValues] = useState<Record<string, string>>({
-    name: roles.find((r) => r.role === defaultRole)?.demoName.split(" (")[0] || "User",
+    name: roles.find((r) => r.role === defaultRole)?.demoName.split(" (")[0] ?? "User",
   });
   const fields = roleFields[role];
 
@@ -89,7 +90,7 @@ function useRoleForm(defaultRole: Role = "citizen") {
     setRole(next);
     const demo = roles.find((r) => r.role === next);
     setValues({
-      name: demo ? demo.demoName.split(" (")[0] : "",
+      name: demo ? (demo.demoName.split(" (")[0] ?? "") : "",
     });
   }
 
@@ -372,7 +373,7 @@ function AuthShell({
         {isLogin ? (
           <>
             <img
-              src="/rural-village-road.jpg"
+              src={assetUrl("/rural-village-road.jpg")}
               alt="Rural village community road in Jharkhand"
               className="size-full object-cover object-center sm:object-[center_bottom] lg:object-center filter brightness-[0.98] contrast-[1.02]"
             />
@@ -383,7 +384,7 @@ function AuthShell({
         ) : (
           <>
             <img
-              src="/jharkhand-hero.jpg"
+              src={assetUrl("/jharkhand-hero.jpg")}
               alt="JanSetu Background"
               className="size-full object-cover object-center filter brightness-[0.82] contrast-[1.05]"
             />
@@ -405,7 +406,7 @@ function AuthShell({
           {/* Official JanSetu Logo */}
           <Link to="/" className="mb-4 inline-block transition-transform hover:scale-[1.02]">
             <img
-              src="/jansetu-logo.png"
+              src={assetUrl("/jansetu-logo.png")}
               alt="JanSetu — Connecting Problems. Creating Solutions. Measuring Impact."
               className="h-16 sm:h-20 w-auto object-contain mx-auto"
             />

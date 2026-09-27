@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { useApp } from "@/app/AppContext";
 import { useT } from "@/utils/i18n";
+import { assetUrl } from "@/lib/utils";
 
 export function Hero() {
   const { state } = useApp();
@@ -33,7 +34,7 @@ export function Hero() {
       {/* Background Image with High-Definition Landscape and Elegant Overlay */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
-          src="/jharkhand-hero.jpg"
+          src={assetUrl("/jharkhand-hero.jpg")}
           alt="Jharkhand Landscape"
           className="size-full object-cover object-center filter brightness-[1.02] contrast-[1.03]"
         />
@@ -108,7 +109,7 @@ export function Hero() {
               {/* Layered Community / Civic Imagery */}
               <div className="relative h-[330px] sm:h-[370px] w-full overflow-hidden rounded-2xl bg-muted/40">
                 <img
-                  src="/stakeholder-citizens.jpg"
+                  src={assetUrl("/stakeholder-citizens.jpg")}
                   alt="Jharkhand Community and Innovation"
                   className="size-full object-cover object-center filter brightness-[0.96] contrast-[1.04] transition-transform duration-700 hover:scale-105"
                 />

@@ -181,10 +181,6 @@ export const hindi: Record<string, string> = {
 
   // Landing
   "AI + GIS for public good": "सार्वजनिक हित के लिए एआई + जीआईएस",
-  "Turn Community Problems Into Real-World Solutions":
-    "सामुदायिक समस्याओं को वास्तविक समाधान में बदलें",
-  "JanSetu connects citizens with government, universities, mentors and industry to identify societal challenges, develop innovative solutions and track their journey from problem to implementation.":
-    "जनसेतु नागरिकों को सरकार, विश्वविद्यालयों, मेंटरों और उद्योग से जोड़ता है ताकि सामाजिक चुनौतियाँ पहचानी जाएँ, नवाचारी समाधान बनें और समस्या से कार्यान्वयन तक की यात्रा ट्रैक हो।",
   Citizen: "नागरिक",
   "Reports a local problem": "स्थानीय समस्या दर्ज करता है",
   "AI Analysis": "एआई विश्लेषण",

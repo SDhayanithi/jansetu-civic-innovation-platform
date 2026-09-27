@@ -478,7 +478,15 @@ export function Impact() {
 export function HowItWorks() {
   const { state } = useApp();
   const t = translations[state.language];
-  const localized =
+  const defaultSteps: [string, string, string][] = [
+    ["01", "Report", "Submit details, evidence and community context."],
+    ["02", "Locate", "Use real GPS or select the location manually."],
+    ["03", "AI Analysis", "AI detects category, urgency, duplicates and SDGs."],
+    ["04", "Prioritization", "A transparent five-part score orders action."],
+    ["05", "Co-Create Solutions", "Universities, mentors and industry collaborate."],
+    ["06", "Implementation", "Government tracks delivery through impact."],
+  ];
+  const steps: [string, string, string][] =
     state.language === "hi"
       ? [
           ["01", "रिपोर्ट करें", "समस्या, प्रमाण और सामुदायिक संदर्भ दर्ज करें।"],
@@ -488,11 +496,11 @@ export function HowItWorks() {
           ["05", "समाधान", "विश्वविद्यालय, मेंटर और उद्योग मिलकर समाधान बनाते हैं।"],
           ["06", "कार्यान्वयन", "सरकार प्रभाव तक हर चरण को ट्रैक करती है।"],
         ]
-      : steps;
+      : defaultSteps;
   return (
     <Page title={t.guideTitle} intro={t.guideIntro}>
       <div className="grid gap-4">
-        {localized.map((s, i) => (
+        {steps.map((s, i) => (
           <Section key={s[0]}>
             <div className="grid grid-cols-[auto_minmax(0,1fr)] gap-4">
               <span className="grid size-12 place-items-center rounded-full bg-secondary font-black text-secondary-foreground">

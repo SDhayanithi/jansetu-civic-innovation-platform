@@ -2,6 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Landmark, Mail, Phone, ShieldCheck } from "lucide-react";
 import { useApp } from "@/app/AppContext";
 import { translations } from "@/utils/translations";
+import { assetUrl } from "@/lib/utils";
 
 export function Footer() {
   const { state } = useApp();
@@ -15,7 +16,7 @@ export function Footer() {
         <div className="lg:col-span-1">
           <Link to="/" className="inline-block">
             <img
-              src="/jansetu-logo.png"
+              src={assetUrl("/jansetu-logo.png")}
               alt="JanSetu — Connecting Problems. Creating Solutions. Measuring Impact."
               className="h-12 w-auto object-contain rounded-lg bg-white/95 p-1.5 shadow-sm"
             />

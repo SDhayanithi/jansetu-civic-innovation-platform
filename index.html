@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JanSetu - Civic Innovation Platform</title>
+    <meta name="description" content="AI and GIS platform for community problem solving." />
+    <link rel="icon" type="image/x-icon" href="/jansetu-civic-innovation-platform/favicon.ico" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" />
+    <script>
+      (function() {
+        const base = '/jansetu-civic-innovation-platform';
+        function fixPath(s) {
+          if (s && s.startsWith('/') && !s.startsWith(base) && !s.startsWith('//')) {
+            return base + s;
+          }
+          return s;
+        }
+        function fixElement(el) {
+          if (el.tagName === 'IMG') {
+            const src = el.getAttribute('src');
+            const fixed = fixPath(src);
+            if (fixed && fixed !== src) el.setAttribute('src', fixed);
+          } else if (el.tagName === 'LINK' && el.rel === 'icon') {
+            const href = el.getAttribute('href');
+            const fixed = fixPath(href);
+            if (fixed && fixed !== href) el.setAttribute('href', fixed);
+          }
+        }
+        new MutationObserver(function(mutations) {
+          for (let i = 0; i < mutations.length; i++) {
+            const m = mutations[i];
+            if (m.type === 'childList') {
+              for (let j = 0; j < m.addedNodes.length; j++) {
+                const n = m.addedNodes[j];
+                if (n.nodeType === 1) {
+                  fixElement(n);
+                  const imgs = n.getElementsByTagName ? n.getElementsByTagName('img') : [];
+                  for (let k = 0; k < imgs.length; k++) fixElement(imgs[k]);
+                }
+              }
+            } else if (m.type === 'attributes') {
+              fixElement(m.target);
+            }
+          }
+        }).observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src', 'href'] });
+
+        window.addEventListener('error', function(e) {
+          if (e.target && e.target.tagName === 'IMG') {
+            const src = e.target.getAttribute('src');
+            const fixed = fixPath(src);
+            if (fixed && fixed !== src) {
+              e.target.src = fixed;
+            }
+          }
+        }, true);
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

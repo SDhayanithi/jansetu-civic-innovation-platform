@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useApp } from "@/app/AppContext";
 import { translations } from "@/utils/translations";
+import { assetUrl } from "@/lib/utils";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -46,7 +47,7 @@ export function Header() {
           className="flex items-center gap-2.5 transition-opacity hover:opacity-90"
         >
           <img
-            src="/jansetu-logo.png"
+            src={assetUrl("/jansetu-logo.png")}
             alt="JanSetu — Connecting Problems. Creating Solutions. Measuring Impact."
             className="h-10 sm:h-11 w-auto max-w-[180px] sm:max-w-[220px] object-contain shrink-0"
           />

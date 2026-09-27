@@ -2,6 +2,7 @@ import { Factory, GraduationCap, Landmark, Network, Sparkles, Users } from "luci
 import { useT } from "@/utils/i18n";
 import { SectionHeading } from "./SectionHeading";
 import { StakeholderCard, type StakeholderProps } from "./StakeholderCard";
+import { assetUrl } from "@/lib/utils";
 
 const stakeholders: StakeholderProps[] = [
   {
@@ -15,7 +16,7 @@ const stakeholders: StakeholderProps[] = [
     route: "/citizen",
     icon: Users,
     tone: "green",
-    image: "/stakeholder-citizens.jpg",
+    image: assetUrl("/stakeholder-citizens.jpg"),
     capabilities: [
       "Easy problem submission",
       "Photos, videos & location",
