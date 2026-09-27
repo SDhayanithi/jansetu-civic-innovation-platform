@@ -1,0 +1,1 @@
+export function calculateRanking(urgency:number,population:number,hotspot:number,support:number,sdg:number){const parts={urgency:urgency*.30,population:population*.20,hotspot:hotspot*.15,support:support*.20,sdg:sdg*.15};return {score:Math.round(Object.values(parts).reduce((a,b)=>a+b,0)),parts};}
